@@ -1,0 +1,25 @@
+<p>So you wanna sign up?  Just fill out this simple form and in 3 easy payments, you're all good to go!</p>
+
+
+<%= form_for @user do |f| %>
+
+	<% if @user.errors.any? %>
+	<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+	<% end %>
+
+	Name: <%= f.text_field :name %>
+	Email: <%= f.email_field :email %>
+	Password: <%= f.password_field :password %>
+	<%= f.submit "SIGN ME UP, SCOTTY!" %>
+<% end %>
+
+<!-- <form action='/users' method="post">
+	<input type="text" name="user[name]" placeholder="---your name here---" />
+	<input type="email" name="user[email]" placeholder="---your email here---" />
+	<input type="password" name="user[password]" placeholder="---your password here---" />
+	<input type="submit" value="SIGN ME UP, SCOTTY!" />
+	</form> -->

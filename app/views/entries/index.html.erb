@@ -1,0 +1,10 @@
+<h2>Welcome to a blog of rails and sorts.</h2>
+
+<% @entries.each do |e| %>
+<div>
+	<h2>
+		<%= link_to e.title, e %>
+	</h2>
+	 Rumor is, I made this on <%= e.created_at.strftime('%m/%d/%y') %>
+	</div>
+<% end %>
