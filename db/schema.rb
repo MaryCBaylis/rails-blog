@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20150405061643) do
 
   create_table "entries", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.string   "content"
     t.datetime "created_at"

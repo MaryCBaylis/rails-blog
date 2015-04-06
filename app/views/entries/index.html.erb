@@ -4,7 +4,8 @@
 <div>
 	<h2>
 		<%= link_to e.title, e %>
+		<% author = User.find(e.user_id).name %>
 	</h2>
-	 Rumor is, I made this on <%= e.created_at.strftime('%m/%d/%y') %>
+	 Rumor is, <%= author %> made this on <%= e.created_at.strftime('%m/%d/%y') %>
 	</div>
 <% end %>

@@ -8,6 +8,7 @@ class EntriesController < ApplicationController
 
 	def show
 		@entry = Entry.find(params[:id])
+		@author = User.find(@entry.user_id).name
 	end
 
 	def new
@@ -15,14 +16,15 @@ class EntriesController < ApplicationController
 	end
 
 	def create
-		@entry = Entry.new(entry_params)
+		user = current_user
+		@entry = user.entries.new(entry_params)
+		# @entry = Entry.new(entry_params)
 		if @entry.save
 			redirect_to @entry
 		else
 			render 'new'
 		end
 	end
-
 
 	def edit
 		@entry = Entry.find(params[:id])

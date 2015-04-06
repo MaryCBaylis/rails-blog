@@ -12,14 +12,13 @@
 		<% if current_user %>
 			<button><%= link_to "Create a New Entry", new_entry_path %></button>
 			<button><%= link_to "Logout!", '/logout' %></button>
-
+		<% else %>
+			<button><%= link_to "Sign in!", '/login'%></button>
+			<button><%= link_to "Sign up!", '/users/new' %></button>
 		<% end %>
 	</div>
 
 	<div class="container">
-		<% flash.each do |name, message| %>
-			<%= message %>
-		<% end %>
 	</div>
 	<div class="container">
 		<%= yield %>

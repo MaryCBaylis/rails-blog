@@ -1,9 +1,14 @@
 <h2>
 	<%= @entry.title %>
 </h2>
+<h3>
+	By: <%= @author %>
+	</h3>
 
-<button><%= link_to "Edit", edit_entry_path(@entry) %></button>
-<button><%= link_to "Delete", entry_path(@entry), method: :delete %></button>
+<% if current_user && current_user.id == @entry.user_id %>
+	<button><%= link_to "Edit", edit_entry_path(@entry) %></button>
+	<button><%= link_to "Delete", entry_path(@entry), method: :delete %></button>
+<% end %>
 
 <p>
 	This entry is <%= time_ago_in_words(@entry.created_at) %> old.
